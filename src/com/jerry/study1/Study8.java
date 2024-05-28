@@ -36,11 +36,15 @@ public class Study8 {
 			}
 
 			if(j==2) {
-				System.out.println("탄알이 모두 소진 되었습니다.");
-				
+				System.out.println("탄알이 모두 소진 되었습니다.");	
+			}
+			
+			if(num==1) {
 				
 			}
 		}
 
+		
+//기본 중괄호
 	}
 }
