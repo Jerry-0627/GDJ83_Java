@@ -4,6 +4,26 @@ import java.util.Scanner;
 
 public class StudentService {
 
+	// findByNum
+	public Student findByNum(Student[] students) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("번호 입력");
+		int n = sc.nextInt();
+
+		Student student = null;
+
+		for (int i = 0; i < students.length; i++) {
+			if (n == students[i].num) {
+				// 입력값과 학생의 번호가 같으면 학생 전체를 리턴하자.
+				student = students[i];
+				break;
+//				return students[i];
+			}
+		}
+		return student;
+
+	}
+
 	public Student[] makeStudent() {
 		// 같은 데이터타입을 묶는것 (타입의 제한이 없음)
 		Scanner sc = new Scanner(System.in);
@@ -38,7 +58,7 @@ public class StudentService {
 			s.math = sc.nextInt();
 			s.total = s.kor + s.eng + s.math;
 			s.avg = s.total / 3.0;
-//			students[i] = s;
+			students[i] = s;
 
 			// 이게 객체를 만드는 방법임
 			// 오른쪽에 있는 것을 왼쪽에 넣을 때 데이터 타입이 같아야 하는데, student[i]의 데이터 타입은 Student이다.
