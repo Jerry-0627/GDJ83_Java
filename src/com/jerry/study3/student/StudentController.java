@@ -12,6 +12,8 @@ public class StudentController {
 		boolean flag = true;
 
 		StudentService service = new StudentService();
+		StudentView view = new StudentView();
+		
 		Student[] students = null;
 
 		while (flag) {
@@ -23,12 +25,13 @@ public class StudentController {
 				students = service.makeStudent();
 
 			} else if (select == 2) {
-				System.out.println("학생 정보 출력 코드 작성");
-				for (int i = 0; i < students.length; i++) {
-					Student s = students[i];
-					System.out.println(s.name);
-					System.out.println(students[i].name);
-				}
+				students = view.
+//				System.out.println("학생 정보 출력 코드 작성");
+//				for (int i = 0; i < students.length; i++) {
+//					Student s = students[i];
+//					System.out.println(s.name);
+//					System.out.println(students[i].name);
+//				}
 
 			} else if (select == 3) {
 				System.out.println("학생 정보 검색 코드 작성");
