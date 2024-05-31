@@ -4,7 +4,7 @@ public class S4Main {
 
 	public static void main(String[] args) {
 //		Car.COMPANY = "";
-		System.out.println(Car.COMPANY);
+		// System.out.println(Car.COMPANY);
 
 		Car.info();
 

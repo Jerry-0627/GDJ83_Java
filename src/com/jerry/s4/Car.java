@@ -5,7 +5,7 @@ public class Car {
 	// 메인 메서드가 슽채틱인 이유는 객체 생성 없이 생성할 수 있게 하기 위해서.
 
 	// # 접근지정자 [그외지정자] 데이터타입 변수명;
-	public static String company = "abc";
+	public static final String COMPANY = "abc";
 	// # 스택 영역 : 메서드가 올라와 실행되는 영역. 스택에 선언된 변순느 지역변수
 	// # 힙 영역 : 객체가 생성되는 영역,. 힙에 만들어진 변수는 인스턴스 변수
 	// # 메서드 영역(스태틱 영역) :
@@ -19,18 +19,19 @@ public class Car {
 	// # 중간은 멤버 변수이다. (?)
 	// # 클래스 내에 선언된 변수는 멤버변수인데 static이 붙으면서 멤버 변수가 아니게 된다.
 
-	public final int price;
+	public final int PRICE;
+	// final이 붙은 것은 대문자로 쓴다.
 //	{
 //		this.price = 30;
 //	} 이렇게 변수를 초기화 하던가 아래처럼 한다.
 
 	public Car() {
-		this.price = 100;
+		this.PRICE = 100;
 	}
 
 	// 메서드 변수
 	public static void info() {
-		System.out.println(Car.company);
+		System.out.println(Car.COMPANY);
 		// System.out.println(this.price);
 		// # System.out.println(this.price);와 같이 this.price라고 쓰면 에러가 난다.
 		// # this는 멤버변수, 힙에 저장된다.
@@ -40,10 +41,10 @@ public class Car {
 		// # this.info2();를 입력해도 에러가 뜬다. 객체가 만들어져야 하는데 this를 쓸 수 있는데, 만들지 않았기에 불가능.
 	}
 
-	public void info2() {
+	public final void info2() {
 		Car.info();
 		// # Car.info()는 프로그램 시작 시 만들어져 있기 때문에 사용할 수 있다.
-		System.out.println(Car.company);
+		System.out.println(Car.COMPANY);
 		// # 스태틱이 붙으면 공통의
 		final int num = 30; // 변수인데 변할 수 없다. 즉 상수 값이다.
 	}
