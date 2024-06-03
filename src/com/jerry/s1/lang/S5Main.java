@@ -17,8 +17,9 @@ public class S5Main {
 		for (int i = 0; i < datas.length; i++) {
 			System.out.println(datas[i]);
 		}
-
+		// primitive 타입을 바꾸는 것
 		String s = String.valueOf(10.2);
 		System.out.println(s);
+
 	}
 }
