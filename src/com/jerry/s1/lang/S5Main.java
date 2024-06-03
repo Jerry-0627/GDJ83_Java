@@ -8,5 +8,17 @@ public class S5Main {
 
 		System.out.println(name);
 		System.out.println(name.length());
+
+		name = "winter-24*서울";
+		// 파싱(parsing) : 하나의 문자열을 여러개의 문자열로 나누는 작업.
+		name = name.replace("*", "-");
+		String[] datas = name.split("-");
+
+		for (int i = 0; i < datas.length; i++) {
+			System.out.println(datas[i]);
+		}
+
+		String s = String.valueOf(10.2);
+		System.out.println(s);
 	}
 }
