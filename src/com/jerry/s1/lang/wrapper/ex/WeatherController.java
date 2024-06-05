@@ -28,6 +28,7 @@ public class WeatherController {
 
 			System.out.println("1. 날씨 정보 전체 출력");
 			System.out.println("2. 날씨 정보 하나 출력");
+			System.out.println("3. 날씨 정보 추가");
 			System.out.println("3. 종료");
 
 			int num = sc.nextInt();
@@ -38,6 +39,8 @@ public class WeatherController {
 				System.out.println("해당 도시의 날씨 정보를 출력하겠습니다.");
 				this.weatherService.findBycity();
 			} else if (num == 3) {
+
+			} else if (num == 4) {
 				System.out.println("종료하겠습니다.");
 				flag = false;
 				// return;
