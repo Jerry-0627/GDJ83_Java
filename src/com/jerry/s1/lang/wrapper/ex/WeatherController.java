@@ -37,7 +37,7 @@ public class WeatherController {
 				this.weatherView.view(dtos);
 			} else if (num == 2) {
 				System.out.println("해당 도시의 날씨 정보를 출력하겠습니다.");
-				this.weatherService.findBycity();
+				this.weatherService.findByCity();
 			} else if (num == 3) {
 
 			} else if (num == 4) {

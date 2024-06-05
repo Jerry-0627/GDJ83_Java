@@ -48,6 +48,10 @@ public class WeatherService {
 	// 날씨정보를 도시명으로 검색 해당 날씨정보를 리턴
 
 	// findByCity
+
+	// 날씨정보 추가
+	// 매서드명 addWeather
+	// 도시명 기온, 습도, 상태 입력 받아서 기존의 날씨 정보들에 추가하기
 	public WeatherDTO findByCity
 
 	public void findByCity() {
@@ -55,10 +59,6 @@ public class WeatherService {
 		String city = sc.next();
 
 	}
-
-	// 날씨정보 추가
-	// 매서드명 addWeather
-	// 도시명 기온, 습도, 상태 입력 받아서 기존의 날씨 정보들에 추가하기
 
 	// removeWeather
 	// 기본 배욜에서 하나를 삭제
