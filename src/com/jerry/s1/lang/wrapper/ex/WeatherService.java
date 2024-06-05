@@ -1,5 +1,7 @@
 package com.jerry.s1.lang.wrapper.ex;
 
+import java.util.Scanner;
+
 public class WeatherService {
 	// Controller Layer
 	// Business Layer
@@ -43,4 +45,12 @@ public class WeatherService {
 
 	}
 
+	// 날씨정보를 도시명으로 검색 해당 날씨정보를 리턴
+
+	// findByCity
+	public void findBycity() {
+		Scanner sc = new Scanner(System.in);
+		String city = sc.next();
+
+	}
 }
