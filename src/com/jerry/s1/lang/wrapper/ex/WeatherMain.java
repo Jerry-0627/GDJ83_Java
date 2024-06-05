@@ -5,7 +5,13 @@ public class WeatherMain {
 		// DTO(Data Transfer Object) : 데이터를 담고 있는 객체
 		// VO(Value Object) :
 
-		new WeatherService().init();
+		WeatherDTO[] dtos = new WeatherService().init();
 
+		// 호출하려면 객체부터 만들고
+		WeatherView wv = new WeatherView();
+		// 멤버 메소드 사용하려면 참조변수.메서드명(매개변수)
+		wv.view(dtos);
+
+//기본
 	}
 }

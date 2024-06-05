@@ -13,18 +13,22 @@ public class WeatherService {
 		this.sb.append("-부산 , 33.6 - 흐림 - 90");
 		this.sb.append("-제주 , 26.5 - 눈 - 30");
 		this.sb.append("-광주 , 10.6 - 태풍 - 80");
-
 	}
 
-	public void init() { // 리턴 타입 모르면 일단 void를 쓸 것
+	public WeatherDTO[] init() { // 리턴 타입 모르면 일단 void를 쓸 것
 		// sb에 있는 것을 문자열 변수에 담아서 출력
 		String info = sb.toString();
-		System.out.println(info);
 		info = info.replace(",", "-");
-		String[] infos = info.split("-"); // - 를 기준으로 분류하여 배열에 담는다.
 
+		WeatherDTO[] dtos = this.getWeatherDTOs(info);
+
+		return dtos;
+	}
+
+	private WeatherDTO[] getWeatherDTOs(String info) {
+		String[] infos = info.split("-"); // - 를 기준으로 분류하여 배열에 담는다.
+		WeatherDTO[] weatherDTOs = new WeatherDTO[infos.length / 4];
 		int j = 0;
-		WeatherDTO[] weatherDTOs = new WeatherDTO[infos.length];
 		for (int i = 0; i < infos.length; i = i + 4) {
 			WeatherDTO weatherDTO = new WeatherDTO();
 			weatherDTO.setCity(infos[i].trim());
@@ -35,13 +39,7 @@ public class WeatherService {
 			j++;
 		}
 
-		for (int i = 0; i < weatherDTOs.length; i++) {
-			WeatherDTO dto = weatherDTOs[i];
-			System.out.print(weatherDTOs[i].getCity() + "\t");
-			System.out.print(weatherDTOs[i].getGion() + "\t");
-			System.out.print(weatherDTOs[i].getStatus() + "\t");
-			System.out.println(weatherDTOs[i].getHumidity() + "\t");
-		}
+		return weatherDTOs;
 
 	}
 
