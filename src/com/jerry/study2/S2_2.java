@@ -59,6 +59,8 @@ public class S2_2 {
 				}
 			} else {
 				System.out.println("프로그램을 종료합니다.");
+				System.out.println("Hello");
+
 				break;
 			}
 		}
