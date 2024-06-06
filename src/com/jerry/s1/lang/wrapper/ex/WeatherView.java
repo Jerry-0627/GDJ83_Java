@@ -6,10 +6,10 @@ public class WeatherView {
 	// 날씨들의 정보를 받아서 이쁘게 출력
 	public void view(WeatherDTO weatherDTO) {
 		if (weatherDTO != null) {
-			System.out.println(weatherDTO.getCity());
-			System.out.println(weatherDTO.getGion());
-			System.out.println(weatherDTO.getStatus());
-			System.out.println(weatherDTO.getHumidity());
+			System.out.print(weatherDTO.getCity() + "\t");
+			System.out.print(weatherDTO.getGion() + "\t");
+			System.out.print(weatherDTO.getStatus() + "\t");
+			System.out.println(weatherDTO.getHumidity() + "\t");
 
 		}
 	}
