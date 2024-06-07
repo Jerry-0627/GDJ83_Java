@@ -1,6 +1,8 @@
 package com.jerry.s1.lang.wrapper.ex;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class WeatherService {
 
@@ -25,10 +27,29 @@ public class WeatherService {
 		info = info.replace(",", "-");
 		// info= info.replace(" ", "");
 
-		WeatherDTO[] dtos = this.getWeathers(info);
+		WeatherDTO[] dtos = this.useTokenizer(info);// this.getWeathers(info);
 
 		return dtos;
 
+	}
+
+	private WeatherDTO[] useTokenizer(String info) {
+		StringTokenizer st = new StringTokenizer(info, "-");
+		WeatherDTO[] dtos = new WeatherDTO[4];
+		ArrayList<WeatherDTO> arrays = new ArrayList<WeatherDTO>();
+		int i = 0;
+		while (st.hasMoreTokens()) {
+			WeatherDTO dto = new WeatherDTO();
+			dto.setCity(st.nextToken().trim());
+			dto.setGion(Double.parseDouble(st.nextToken().trim()));
+			dto.setStatus(st.nextToken().trim());
+			dto.setHumidity(Integer.parseInt(st.nextToken().trim()));
+			arrays.add(dto);
+
+			dtos[i] = dto;
+			i++;
+		}
+		return dtos;
 	}
 
 	private WeatherDTO[] getWeathers(String info) {
@@ -39,13 +60,13 @@ public class WeatherService {
 
 		for (int i = 0; i < infos.length; i = i + 4) {
 			WeatherDTO weatherDTO = new WeatherDTO();
-			weatherDTO.setCity(infos[i].trim());
+			weatherDTO.setCity(infos[i]);
 
-			weatherDTO.setGion(Double.parseDouble(infos[i + 1].trim()));
+			weatherDTO.setGion(Double.parseDouble(infos[i + 1]));
 
-			weatherDTO.setStatus(infos[i + 2].trim());
+			weatherDTO.setStatus(infos[i + 2]);
 
-			weatherDTO.setHumidity(Integer.parseInt(infos[i + 3].trim()));
+			weatherDTO.setHumidity(Integer.parseInt(infos[i + 3]));
 
 			dtos[idx] = weatherDTO;
 			idx++;
