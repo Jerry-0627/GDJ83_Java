@@ -32,11 +32,11 @@ public class BusinessCardDTO {
 		this.rank = rank;
 	}
 
-	public String getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
 
-	public void setLevel(String level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 
