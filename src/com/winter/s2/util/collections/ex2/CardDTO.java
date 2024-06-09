@@ -1,6 +1,6 @@
 package com.winter.s2.util.collections.ex2;
 
-public class BusinessCardDTO {
+public class CardDTO {
 	// 회사명, 이름, 직급, 연락처
 	private String company;
 	private String name;
