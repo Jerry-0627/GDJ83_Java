@@ -6,7 +6,7 @@ public class CardDTO {
 	private String name;
 	private String rank;
 	private Integer level;
-	private Integer contact;
+	private String contact;
 
 	public String getCompany() {
 		return company;
@@ -40,11 +40,11 @@ public class CardDTO {
 		this.level = level;
 	}
 
-	public Integer getContact() {
+	public String getContact() {
 		return contact;
 	}
 
-	public void setContact(Integer contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 

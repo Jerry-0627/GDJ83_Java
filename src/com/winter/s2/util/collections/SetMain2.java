@@ -9,6 +9,12 @@ public class SetMain2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// 로또 번호를 뽑는데 중복되는 번호가 없어야 한다.
+
+		String n = "123";
+		Object obj = n;
+
+		System.out.println(obj instanceof String);
+
 		Random random = new Random();
 
 		ArrayList<Integer> list = new ArrayList<Integer>();
