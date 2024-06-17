@@ -1,6 +1,8 @@
 package com.jerry.s6.network;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,6 +10,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ServerMain {
@@ -42,32 +45,36 @@ public class ServerMain {
 				sc = ss.accept();
 				System.out.println("Client와 연결이 성공 되었습니다.");
 
+				is = sc.getInputStream(); // 소켓이 연결되면 아웃풋 인풋 스트림 하나씩 생김. 0과 1을 처리하는 애임
+				ir = new InputStreamReader(is); // 0과 1을 문자로 읽어주는애
+				br = new BufferedReader(ir); // 애는 빨대가 3개 꽂힌거임.
+				
+				os = sc.getOutputStream();
+				ow = new OutputStreamWriter(os);
+				ArrayList<String> arSt = new ArrayList<String>();
+				
 				while (true) {
 					// @ 데이터를 받는 변수 선언
-					is = sc.getInputStream(); // 소켓이 연결되면 아웃풋 인풋 스트림 하나씩 생김. 0과 1을 처리하는 애임
-					ir = new InputStreamReader(is); // 0과 1을 문자로 읽어주는애
-					br = new BufferedReader(ir); // 애는 빨대가 3개 꽂힌거임.
 					String msg = br.readLine();
-					System.out.println(msg);
-					if (msg.toUpperCase().equals("exit")) {
-						System.out.println("채팅을 종료합니다.");
-						break;
-
+					if(msg.equals("1")) {
+						File file = new File("c:\\study", "Client.txt");
+						FileReader freader = new FileReader(file);
+						BufferedReader breader = new BufferedReader(freader);
+						for(String a : arSt) {
+							a = breader.readLine();
+							ow.write(a);
+							ow.flush();
+						}
+					}else if(msg.equals("2")) {
+						System.out.println("2번");
+					}else if(msg.equals("3")) {
+						System.out.println("2번");
 					}
-//					File file = new File("c:\\study", "Client.txt");
-//					FileReader freader = new FileReader(file);
-//					BufferedReader breader = new BufferedReader(freader);
-//					String str1 = breader.readLine();
-//					if (msg.equals("1")) {
-//						ow.write(str1);
-//						ow.flush();
-//					}
+
 
 					// @ 데이터를 보낼 변수 선언
 					System.out.println("클라이언트로 보낼 메세지를 입력하세요.");
 					str = scan.next();
-					os = sc.getOutputStream();
-					ow = new OutputStreamWriter(os);
 					ow.write(str + "\r\n");
 					ow.flush();
 					if (str.toUpperCase().equals("exit")) {

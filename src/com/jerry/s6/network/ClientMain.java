@@ -26,31 +26,27 @@ public class ClientMain {
 
 		try {
 			// @ 보내는 역할을 하는 클래스의 변수 선언 후 실행
-			socket = new Socket("192.168.7.118", 8282);
+			socket = new Socket("192.168.0.22", 8282);
 			System.out.println("서버와 연결 성공");
 			while (true) {
 
 				System.out.println("1. 학생 정보 리스트");
 				System.out.println("2. 세부 학생 정보");
 				System.out.println("3. 종료");
-				String str = sc.next();
-				// System.out.println(str);
-				// 서버와 연결하려고 하는데, 서버에 대한 정보는 다 소켓에 있음. ,,, 내보낼 준비중
+				
+				String str = sc.next();				
 				os = socket.getOutputStream();
 				ow = new OutputStreamWriter(os); // 문자
-				ow.write(str + "\r\n");// str을 내보내려 하느데, 버퍼에 담긴 것을 내보내려 한다.
-				ow.flush(); // 버퍼가 안비워질 수도 있기 때문에 강제로 비우는 것.
+				ow.write(str + "\r\n");
+				ow.flush();
 				if (str.toUpperCase().equals("3")) {
 					System.out.println("채팅을 종료합니다.");
 					break;
 				}
 
-				// @ 받는 역할을하는 클래스의 변수 선언 후 실행.
-
 				is = socket.getInputStream();
 				ir = new InputStreamReader(is);
 				br = new BufferedReader(ir);
-
 				while (true) {
 					String msg = br.readLine();
 					if (msg == null) {
