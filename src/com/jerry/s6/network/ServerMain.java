@@ -48,29 +48,36 @@ public class ServerMain {
 				is = sc.getInputStream(); // 소켓이 연결되면 아웃풋 인풋 스트림 하나씩 생김. 0과 1을 처리하는 애임
 				ir = new InputStreamReader(is); // 0과 1을 문자로 읽어주는애
 				br = new BufferedReader(ir); // 애는 빨대가 3개 꽂힌거임.
-				
+
 				os = sc.getOutputStream();
 				ow = new OutputStreamWriter(os);
 				ArrayList<String> arSt = new ArrayList<String>();
-				
+
 				while (true) {
 					// @ 데이터를 받는 변수 선언
 					String msg = br.readLine();
-					if(msg.equals("1")) {
+					if (msg.equals("1")) {
 						File file = new File("c:\\study", "Client.txt");
 						FileReader freader = new FileReader(file);
 						BufferedReader breader = new BufferedReader(freader);
-						for(String a : arSt) {
-							a = breader.readLine();
-							ow.write(a);
-							ow.flush();
+						StringBuffer sb = new StringBuffer();
+						String string = new String();
+						while (true) {
+							if (breader.readLine() == null) {
+								break;
+							}
+							sb.append(breader.readLine());
+							string = sb.toString();
 						}
-					}else if(msg.equals("2")) {
+
+						ow.write(string);
+						ow.flush();
+
+					} else if (msg.equals("2")) {
 						System.out.println("2번");
-					}else if(msg.equals("3")) {
+					} else if (msg.equals("3")) {
 						System.out.println("2번");
 					}
-
 
 					// @ 데이터를 보낼 변수 선언
 					System.out.println("클라이언트로 보낼 메세지를 입력하세요.");

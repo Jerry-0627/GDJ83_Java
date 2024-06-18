@@ -26,15 +26,15 @@ public class ClientMain {
 
 		try {
 			// @ 보내는 역할을 하는 클래스의 변수 선언 후 실행
-			socket = new Socket("192.168.0.22", 8282);
+			socket = new Socket("192.168.7.120", 8282);
 			System.out.println("서버와 연결 성공");
 			while (true) {
 
 				System.out.println("1. 학생 정보 리스트");
 				System.out.println("2. 세부 학생 정보");
 				System.out.println("3. 종료");
-				
-				String str = sc.next();				
+
+				String str = sc.next();
 				os = socket.getOutputStream();
 				ow = new OutputStreamWriter(os); // 문자
 				ow.write(str + "\r\n");
