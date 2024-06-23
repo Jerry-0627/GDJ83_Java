@@ -23,7 +23,7 @@ public class CalendarMain {
 		Calendar future = Calendar.getInstance();
 		future.set(Calendar.DATE, future.get(Calendar.DATE) + 17);
 		
-		future.set
+//		future.set
 
 		System.out.println(future.getTime());
 
